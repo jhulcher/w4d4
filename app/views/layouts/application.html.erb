@@ -1,12 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MusicApp</title>
+  <title>Music App</title>
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
 </head>
 <body>
+  <h2> Music App</h2>
+  <%= button_to "Log Out", session_url, method: :delete %>
+  <% if current_user %>
+    <h3> <%= current_user.user_name %> </h3>
+    <%= button_to "Log Out", session_url, method: :delete %>
+  <% else %>
+    <table>
+      <tr>
+        <td>
+          <%= button_to "Log In", new_session_url, method: :get %>
+        </td>
+        <td>
+          <%= button_to "Register Account", new_user_url, method: :get %>
+        </td>
+      </tr>
+    </table>
+  <% end %>
 
 <%= yield %>
 

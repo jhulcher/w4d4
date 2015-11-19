@@ -1,0 +1,16 @@
+<h3> Register New User </h3>
+
+<form action="/users" method="post">
+
+  <input name='authenticity_token' value="<%= form_authenticity_token %>" type="hidden" >
+  <label>Username:</label>
+  <br>
+  <input type="text" name="user[user_name]" value="<%= @user.user_name %>">
+  <br>
+  <label>Password:</label>
+  <br>
+  <input type="password" name="user[:password]">
+  <br>
+  <input type="submit" value="Create User">
+
+</form>
